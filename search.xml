@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>用数组实现环形队列</title>
-    <url>/lifengo/2020/03/10/%E7%94%A8%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97/</url>
+    <url>/2020/03/10/%E7%94%A8%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h2 id="通过取模的方式来实现"><a href="#通过取模的方式来实现" class="headerlink" title="通过取模的方式来实现"></a>通过取模的方式来实现</h2><p>思路如下:</p>
 <ol>
 <li>front 指向队列的第一个元素, 也就是说 arr[front] 就是队列的第一个元素<br>front 的初始值 = 0</li>
@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <title>稀疏数组基本实现</title>
-    <url>/lifengo/2020/03/09/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/</url>
+    <url>/2020/03/09/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a><strong>基本介绍</strong></h2><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
 <h2 id="稀疏数组的处理方法是"><a href="#稀疏数组的处理方法是" class="headerlink" title="稀疏数组的处理方法是:"></a><strong>稀疏数组的处理方法是:</strong></h2><ul>
 <li>记录数组一共有几行几列，有多少个不同的值</li>
@@ -46,7 +46,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/lifengo/2020/03/09/hello-world/</url>
+    <url>/2020/03/09/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="欢迎访问我的博客！！"><a href="#欢迎访问我的博客！！" class="headerlink" title="欢迎访问我的博客！！"></a>欢迎访问我的博客！！</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
