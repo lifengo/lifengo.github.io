@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JavaWeb笔记</title>
+    <title>JavaWeb</title>
     <url>/2020/03/26/JavaWeb%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="JavaWeb"><a href="#JavaWeb" class="headerlink" title="JavaWeb"></a>JavaWeb</h2><ol>
 <li>web前端<ul>
@@ -755,6 +755,12 @@ location.href=&quot;http://tmooc.cn&quot; //修改</code></pre> location.reload(
 元素对象.css(&quot;color&quot;,&quot;red&quot;); //赋值
 元素对象.css({&quot;xxx&quot;:&quot;xx&quot;,&quot;xxx&quot;:&quot;xx&quot;}) //批量赋值</code></pre><h4 id="获取和修改元素的属性"><a href="#获取和修改元素的属性" class="headerlink" title="获取和修改元素的属性"></a>获取和修改元素的属性</h4><pre><code>元素对象.attr(&quot;属性名&quot;); //获取
 元素对象.attr(&quot;属性名&quot;,&quot;值&quot;); //赋值</code></pre><h4 id="获取元素的子元素们"><a href="#获取元素的子元素们" class="headerlink" title="获取元素的子元素们"></a>获取元素的子元素们</h4><pre><code>元素对象.children()</code></pre><h4 id="获取元素的父元素"><a href="#获取元素的父元素" class="headerlink" title="获取元素的父元素"></a>获取元素的父元素</h4><pre><code>元素对象.parent();</code></pre>]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>javaWeb</tag>
+      </tags>
   </entry>
   <entry>
     <title>用数组实现环形队列</title>
