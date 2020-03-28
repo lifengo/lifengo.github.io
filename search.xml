@@ -3,19 +3,13 @@
   <entry>
     <title>JavaWeb</title>
     <url>/2020/03/26/JavaWeb%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="JavaWeb"><a href="#JavaWeb" class="headerlink" title="JavaWeb"></a>JavaWeb</h2><ol>
-<li>web前端<ul>
-<li>HTML: 负责搭建页面结构和内容            （盖房子 毛坯房）</li>
-<li>CSS: 负责美化页面                        （装修）</li>
-<li>JavaScript:负责给页面添加动态效果和动态内容</li>
-<li>JQeury: 是一个js框架，为了简化js开发而生</li>
-</ul>
-</li>
-<li>数据库<a id="more"></a>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2></li>
-</ol>
-<ul>
-<li><p>Hyper Text Mark Language:超文本标记语言，超文本：指不仅仅是纯文本还包括字体的各种设置（大小、颜色、样式等）和多媒体(图片、视频、音频)相关。</p>
+    <content><![CDATA[<h2 id="JavaWeb"><a href="#JavaWeb" class="headerlink" title="JavaWeb"></a>JavaWeb</h2><pre><code>web前端
+- HTML: 负责搭建页面结构和内容            （盖房子 毛坯房）
+- CSS: 负责美化页面                        （装修）
+- JavaScript:负责给页面添加动态效果和动态内容
+- JQeury: 是一个js框架，为了简化js开发而生</code></pre><a id="more"></a>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ul>
+<li><p>Hyper Text Mark Language:超文本标言，超文本：指不仅仅是纯文本还包括字体的各种设置（大小、颜色、样式等）和多媒体(图片、视频、音频)相关。</p>
 </li>
 <li><p>html学习内容：主要学习有哪些标签，标签有哪些属性，标签和标签之间的嵌套关系</p>
 <h3 id="html结构"><a href="#html结构" class="headerlink" title="html结构"></a>html结构</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;!-- 文档声明
@@ -659,91 +653,7 @@ location.href=&quot;http://tmooc.cn&quot; //修改</code></pre> location.reload(
 <li>$(“input:checked”) 匹配所有选中的单选和多选</li>
 <li>$(“:selected”) 匹配所有选中的下拉选</li>
 </ul>
-<h4 id="选择器回顾"><a href="#选择器回顾" class="headerlink" title="选择器回顾"></a>选择器回顾</h4><ol>
-<li>基础选择器</li>
-</ol>
-<ul>
-<li>$(“div”)</li>
-<li>$(“#id”)</li>
-<li>$(“.class”)</li>
-<li>$(“div,#id”)</li>
-<li>$(“*”)</li>
-</ul>
-<ol start="2">
-<li>层级选择器</li>
-</ol>
-<ul>
-<li>$(“div span”)</li>
-<li>$(“div&gt;span”)</li>
-<li>$(“div+span”)</li>
-<li>$(“div~span”)</li>
-<li>.siblings()</li>
-<li>.prev()</li>
-<li>.prevAll()</li>
-<li>.next()</li>
-<li>.nextAll()</li>
-</ul>
-<ol start="3">
-<li>过滤选择器</li>
-</ol>
-<ul>
-<li>$(“div:first”)</li>
-<li>$(“div:last”)</li>
-<li>$(“div:even”)</li>
-<li>$(“div:odd”)</li>
-<li>$(“div:lt(n)”)</li>
-<li>$(“div:gt(n)”)</li>
-<li>$(“div:eq(n)”)</li>
-<li>$(“div:not(xxx)”)</li>
-</ul>
-<ol start="4">
-<li>内容选择器</li>
-</ol>
-<ul>
-<li>$(“div:has(p)”)</li>
-<li>$(“div:empty”)</li>
-<li>$(“div:parent”)</li>
-<li>$(“div:contains(‘xxx’)”)</li>
-</ul>
-<ol start="5">
-<li>可见选择器</li>
-</ol>
-<ul>
-<li>$(“div:visible”)</li>
-<li>$(“div:hidden”)</li>
-<li>.show()</li>
-<li>.hide()</li>
-<li>.toggle()</li>
-</ul>
-<ol start="6">
-<li>属性选择器</li>
-</ol>
-<ul>
-<li>$(“div[id]”)</li>
-<li>$(“div[id=’xxx’]”)</li>
-<li>$(“div[id!=’xxx’]”)</li>
-</ul>
-<ol start="7">
-<li>子元素选择器</li>
-</ol>
-<ul>
-<li>$(“div:first-child”)</li>
-<li>$(“div:last-child”)</li>
-<li>$(“div:nth-child(n)”)</li>
-</ul>
-<ol start="8">
-<li>表单选择器</li>
-</ol>
-<ul>
-<li>$(“:input”)</li>
-<li>$(“:passowrd”)</li>
-<li>$(“:radio”)</li>
-<li>$(“:checkbox”)</li>
-<li>$(“:checked”)</li>
-<li>$(“input:checked”)</li>
-<li>$(“:selected”)<h4 id="创建和添加元素"><a href="#创建和添加元素" class="headerlink" title="创建和添加元素"></a>创建和添加元素</h4></li>
-</ul>
-<ol>
+<h4 id="创建和添加元素"><a href="#创建和添加元素" class="headerlink" title="创建和添加元素"></a>创建和添加元素</h4><ol>
 <li>创建元素<br> js:var d = document.createElement(“div”);<br> jq: var d = $(“<div id='xxx'>xxxxx</div>“);</li>
 <li>添加元素<br> js: 父元素.appendChild(新元素)<br> jq: 父元素.append(新元素); //添加到最后面<pre><code>父元素.prepend(新元素); //添加到最前面</code></pre></li>
 <li>插入元素<br> js: 父元素.insertBefore(新元素,弟弟);<br> jq: 弟弟.before(新元素);<pre><code>哥哥.after(新元素);</code></pre></li>
@@ -754,7 +664,25 @@ location.href=&quot;http://tmooc.cn&quot; //修改</code></pre> location.reload(
 元素对象.html(&quot;&lt;h1&gt;xxx&lt;/h1&gt;&quot;) //修改</code></pre><h4 id="获取和修改元素的样式"><a href="#获取和修改元素的样式" class="headerlink" title="获取和修改元素的样式"></a>获取和修改元素的样式</h4><pre><code>元素对象.css(&quot;color&quot;); //获取样式的值
 元素对象.css(&quot;color&quot;,&quot;red&quot;); //赋值
 元素对象.css({&quot;xxx&quot;:&quot;xx&quot;,&quot;xxx&quot;:&quot;xx&quot;}) //批量赋值</code></pre><h4 id="获取和修改元素的属性"><a href="#获取和修改元素的属性" class="headerlink" title="获取和修改元素的属性"></a>获取和修改元素的属性</h4><pre><code>元素对象.attr(&quot;属性名&quot;); //获取
-元素对象.attr(&quot;属性名&quot;,&quot;值&quot;); //赋值</code></pre><h4 id="获取元素的子元素们"><a href="#获取元素的子元素们" class="headerlink" title="获取元素的子元素们"></a>获取元素的子元素们</h4><pre><code>元素对象.children()</code></pre><h4 id="获取元素的父元素"><a href="#获取元素的父元素" class="headerlink" title="获取元素的父元素"></a>获取元素的父元素</h4><pre><code>元素对象.parent();</code></pre>]]></content>
+元素对象.attr(&quot;属性名&quot;,&quot;值&quot;); //赋值</code></pre><h4 id="获取元素的子元素们"><a href="#获取元素的子元素们" class="headerlink" title="获取元素的子元素们"></a>获取元素的子元素们</h4><pre><code>元素对象.children()</code></pre><h4 id="获取元素的父元素"><a href="#获取元素的父元素" class="headerlink" title="获取元素的父元素"></a>获取元素的父元素</h4><pre><code>元素对象.parent();</code></pre><h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ol>
+<li>购物车<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        h3 &#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">        table &#123;</span><br><span class="line">            width: <span class="number">60</span>%;</span><br><span class="line">            margin: <span class="number">0</span> auto;</span><br><span class="line">            border: <span class="number">1</span>px solid red;</span><br><span class="line">            <span class="comment">/*将两条线合成一条线*/</span></span><br><span class="line">            border-collapse: collapse;</span><br><span class="line">        &#125;</span><br><span class="line">        td, th &#123;</span><br><span class="line">            border: <span class="number">1</span>px solid red;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script type="text/javascript" src="../js/jquery-1.4.2.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        $(function () &#123;</span><br><span class="line">            $(<span class="string">"input"</span>).click(function () &#123;</span><br><span class="line">                <span class="comment">//创建tr 和 5 个td</span></span><br><span class="line">                <span class="keyword">var</span> tr = $(<span class="string">"&lt;tr&gt;&lt;/tr&gt;"</span>);</span><br><span class="line">                <span class="keyword">var</span> nametd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>);</span><br><span class="line">                <span class="keyword">var</span> pricetd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>);</span><br><span class="line">                <span class="keyword">var</span> numtd = $(<span class="string">"&lt;td&gt;&lt;input type='button' value='-' onclick='numfn(-1)' style='width: 20px;height: 20px;'&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;span&gt;1&lt;/span&gt;"</span> +</span><br><span class="line">                    <span class="string">"&lt;input type='button' value='+' onclick='numfn(1)' style='width: 20px;height: 20px;'&gt;&lt;/td&gt;"</span>);</span><br><span class="line">                <span class="keyword">var</span> moneytd = $(<span class="string">"&lt;td&gt;&lt;/td&gt;"</span>);</span><br><span class="line">                <span class="keyword">var</span> deltd = $(<span class="string">"&lt;td&gt;&lt;input type='button' value='删除'&gt;&lt;/td&gt;"</span>);</span><br><span class="line">                <span class="comment">//给删除按钮添加点击事件</span></span><br><span class="line">                deltd.children().click(function () &#123;</span><br><span class="line">                    $(<span class="keyword">this</span>).parent().parent().remove();</span><br><span class="line">                    <span class="comment">//计算总价</span></span><br><span class="line">                    clafn();</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="comment">//通过按钮找到上级td再得到所有兄弟td</span></span><br><span class="line">                <span class="keyword">var</span> name = $(<span class="keyword">this</span>).parent().siblings().eq(<span class="number">0</span>).text();</span><br><span class="line">                <span class="keyword">var</span> price = $(<span class="keyword">this</span>).parent().siblings().eq(<span class="number">1</span>).text();</span><br><span class="line">                nametd.text(name);</span><br><span class="line">                pricetd.text(price);</span><br><span class="line">                moneytd.text(price);</span><br><span class="line">                <span class="comment">//把td装进tr</span></span><br><span class="line">                tr.append(nametd);</span><br><span class="line">                tr.append(pricetd);</span><br><span class="line">                tr.append(numtd);</span><br><span class="line">                tr.append(moneytd);</span><br><span class="line">                tr.append(deltd);</span><br><span class="line">                <span class="comment">//把tr装进table</span></span><br><span class="line">                $(<span class="string">"tr:last"</span>).before(tr);</span><br><span class="line">                <span class="comment">//计算总价</span></span><br><span class="line">                clafn();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">//加减按钮的方法</span></span><br><span class="line">        <span class="function">function <span class="title">numfn</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//得到原来的数值</span></span><br><span class="line">            <span class="keyword">var</span> obj = event.target || event.srcElement;</span><br><span class="line">            <span class="comment">//通过按钮得到兄弟span里面的文本</span></span><br><span class="line">            <span class="keyword">var</span> count = parseInt($(obj).siblings(<span class="string">"span"</span>).text());</span><br><span class="line">            <span class="comment">//计算结果，并返回</span></span><br><span class="line">            count += x;</span><br><span class="line">            <span class="keyword">if</span> (count &lt; <span class="number">1</span>) &#123;</span><br><span class="line">                count = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $(obj).siblings(<span class="string">"span"</span>).text(count);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//得到商品单价</span></span><br><span class="line">            <span class="keyword">var</span> price = $(obj).parent().prev().text();</span><br><span class="line">            <span class="comment">//将计算后的值给到金额</span></span><br><span class="line">            $(obj).parent().next().text(count * price);</span><br><span class="line">            <span class="comment">//计算总价</span></span><br><span class="line">            clafn();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//计算总价方法</span></span><br><span class="line">        <span class="function">function <span class="title">clafn</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> total = <span class="number">0</span>;</span><br><span class="line">            $(<span class="string">"table:last tr"</span>).each(function () &#123;</span><br><span class="line">                <span class="comment">//得到每一行里面的第四个孩子td</span></span><br><span class="line">                <span class="keyword">var</span> money = parseInt($(<span class="keyword">this</span>).children().eq(<span class="number">3</span>).text());</span><br><span class="line">                <span class="keyword">if</span> (!isNaN(money))&#123;</span><br><span class="line">                    total += money;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            $(<span class="string">"td:last"</span>).text(<span class="string">"总价："</span>+total+<span class="string">"元"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h3&gt;特价商品&lt;/h3&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;商品名称&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;单价&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;库存&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;好评率&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;水杯&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;25&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;100&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;90%&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="加入购物车"&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;鼠标&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;50&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;200&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;80%&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="加入购物车"&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;键盘&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;100&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;99%&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;input type="button" value="加入购物车"&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3&gt;购物车&lt;/h3&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;商品名称&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;单价&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;数量&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;金额&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td colspan="5"&gt;总价：0元&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="jQuery事件相关"><a href="#jQuery事件相关" class="headerlink" title="jQuery事件相关"></a>jQuery事件相关</h4></li>
+<li>常见事件</li>
+</ol>
+<ul>
+<li>鼠标事件: 点击事件 click 鼠标移入 mouseover 鼠标移出mouseout 鼠标按下mousedown 鼠标抬起mouseup 鼠标移动mousemove</li>
+<li>键盘事件: 键盘按下 keydown  键盘抬起 keyup</li>
+<li>状态改变事件: 页面加载完成 $(function(){xxxx}) 值改变change 表单提交submit  获取焦点focus  失去焦点blur 窗口尺寸改变resize</li>
+</ul>
+<ol start="2">
+<li>事件模拟<br> 元素.trigger(“事件名称”);</li>
+<li>鼠标移入移出事件合并<br> 元素.hover(function(){鼠标移入时执行},function(){鼠标移出执行});</li>
+</ol>
+<h4 id="动画相关"><a href="#动画相关" class="headerlink" title="动画相关"></a>动画相关</h4><p><strong>演示：</strong></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        img&#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script type="text/javascript" src="../js/jquery-1.4.2.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        $(function () &#123;</span><br><span class="line">            $(<span class="string">"input"</span>).click(function () &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"隐藏"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).hide(<span class="number">3000</span>,function () &#123;</span><br><span class="line">                        alert(<span class="string">"XXX"</span>);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"显示"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).show(<span class="number">3000</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"淡出"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).fadeOut(<span class="number">3000</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"淡入"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).fadeIn(<span class="number">3000</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"上滑"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).slideUp(<span class="number">3000</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.value == <span class="string">"下滑"</span>)&#123;</span><br><span class="line">                    $(<span class="string">"img"</span>).slideDown(<span class="number">3000</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//自定义</span></span><br><span class="line">                    $(<span class="string">"img"</span>).animate(&#123;<span class="string">"left"</span>:<span class="string">"200px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .animate(&#123;<span class="string">"top"</span>:<span class="string">"200px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .animate(&#123;<span class="string">"left"</span>:<span class="string">"0px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .animate(&#123;<span class="string">"top"</span>:<span class="string">"0px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .animate(&#123;<span class="string">"width"</span>:<span class="string">"200px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .animate(&#123;<span class="string">"width"</span>:<span class="string">"100px"</span>&#125;,<span class="number">1000</span>)</span><br><span class="line">                    .fadeOut(<span class="number">3000</span>,function () &#123;</span><br><span class="line">                        $(<span class="string">"img"</span>).remove();</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"隐藏"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"显示"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"淡出"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"淡入"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"上滑"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"下滑"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"自定义"</span>&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;img src=<span class="string">"../imgs/a.jpg"</span>&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>下雪效果：</strong></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script type="text/javascript" src="../js/jquery-1.4.2.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        	<span class="comment">/*1、雪花尺寸随机20-40</span></span><br><span class="line"><span class="comment">            2、雪花越小移动速度越快</span></span><br><span class="line"><span class="comment">            3. 雪花落地后一秒融化</span></span><br><span class="line"><span class="comment">            （淡出，淡出后删除）*/</span></span><br><span class="line">        setInterval(function () &#123;</span><br><span class="line">            <span class="keyword">var</span> img = $(<span class="string">"&lt;img src='snow.png'&gt;"</span>);</span><br><span class="line">            $(<span class="string">"body"</span>).append(img);</span><br><span class="line">            img.css(<span class="string">"position"</span>,<span class="string">"absolute"</span>);</span><br><span class="line">            <span class="keyword">var</span> size = parseInt(Math.random()*<span class="number">20</span>)+<span class="number">20</span>;</span><br><span class="line">            img.css(<span class="string">"width"</span>,size+<span class="string">"px"</span>);</span><br><span class="line">            <span class="keyword">var</span> w = document.body.clientWidth;</span><br><span class="line">            <span class="comment">//得到随机left值</span></span><br><span class="line">            <span class="keyword">var</span> left = parseInt(Math.random()*(w-size));</span><br><span class="line">            <span class="comment">//设置给图片</span></span><br><span class="line">            img.css(<span class="string">"left"</span>,left+<span class="string">"px"</span>);</span><br><span class="line">            <span class="comment">//让图片往下移动</span></span><br><span class="line">            <span class="keyword">var</span> h = document.body.parentElement.clientHeight;</span><br><span class="line">            img.animate(&#123;<span class="string">"top"</span>:h-size+<span class="string">"px"</span>&#125;,size*<span class="number">100</span>)</span><br><span class="line">                .fadeOut(<span class="number">1000</span>,function () &#123;</span><br><span class="line">                    img.remove();</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;,<span class="number">10</span>)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        body&#123;</span><br><span class="line">            background-color: black;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>JavaWeb</category>
       </categories>
