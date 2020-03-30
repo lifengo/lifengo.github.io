@@ -213,6 +213,142 @@ create table emp(id int,name varchar(10),age int)engine=innodb charset=utf8;</co
 <li>删除所有数据</li>
 <li>删除表</li>
 </ol>
+<h4 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h4><ol>
+<li>创建数据库mydb2 字符集utf8  并使用<br> create database mydb2 character set utf8;<br> use mydb2;</li>
+<li>创建员工表emp 有id和name字段<br> create table emp (id int,name varchar(10));</li>
+<li>修改表名为t_emp<br> rename table emp to t_emp;        </li>
+<li>添加部门名称字段dept<br> alter table t_emp add dept varchar(10);</li>
+<li>在name后面添加age字段<br> alter table t_emp add age int after name;</li>
+<li>插入刘关张三个人id分别为1,2,3部门都是三国部，再插入唐僧师徒4个人，id分别为4567 部门为取经部<br>insert into t_emp values<br>(1,’刘备’,38,’三国部’),(2,’关羽’,37,’三国部’),(3,’张飞’,36,’三国部’),(4,’唐僧’,30,’取经部’),(5,’悟空’,500,’取经部’),(6,’八戒’,300,’取经部’),(7,’沙僧’,200,’取经部’);</li>
+<li>给表再添加工资字段，添加到部门字段的前面<br> alter table t_emp add sal int after age;</li>
+<li>修改取经部门的工资为100<br> update t_emp set sal=100 where dept=’取经部’;</li>
+<li>修改唐僧的名字为唐长老<br> update t_emp set name=’唐长老’ where name=’唐僧’;</li>
+<li>修改三国部为蜀国部<br>update t_emp set dept=’蜀国部’ where dept=’三国部’;</li>
+<li>删除猪八戒<br>delete from t_emp where name=’八戒’;</li>
+<li>删除蜀国部的人<br>delete from t_emp where dept=’蜀国部’; </li>
+<li>修改所有员工的工资为800<br>update t_emp set sal=800;</li>
+<li>删除所有人                 15. 最后删除表<br>delete from t_emp;<br>drop table t_emp;</li>
+</ol>
+<h3 id="主键约束-primary-key"><a href="#主键约束-primary-key" class="headerlink" title="主键约束 primary key"></a>主键约束 primary key</h3><ul>
+<li>什么是主键: 表示数据唯一性的字段称为主键</li>
+<li>什么是约束: 是创建表时给表字段添加的限制条件</li>
+<li>主键约束: 让该字段的数据唯一且非空(不能重复,不能null)</li>
+<li>格式:  create table t1(id int primary key,name varchar(10));<br>  insert into t1 values(1,’AAA’); //成功!<br>  insert into t1 values(1,’BBB’);//报错 不能重复<br>  insert into t1 values(null,’CCC’); //报错 不能为null</li>
+</ul>
+<h3 id="主键约束-自增"><a href="#主键约束-自增" class="headerlink" title="主键约束+自增"></a>主键约束+自增</h3><ul>
+<li>自增数值只增不减,从历史最大值基础上+1</li>
+<li>格式: create table t2(id int primary key auto_increment,name varchar(10));<br>  insert into t2 values(null,’aaa’); //1<br>  insert into t2 values(null,’bbb’); //2<br>  insert into t2 values(3,’ccc’);    //3<br>  insert into t2 values(10,’ddd’);   //10<br>  insert into t2 values(null,’eee’);  //11<br>  delete from t2 where id&gt;=10;<br>  insert into t2 values(null,’fff’);  //12</li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
+<li>格式:<br>create table t3<br>  (id int primary key auto_increment comment ‘这是主键’,name varchar(10) comment ‘这是名字’);</li>
+</ul>
+<h3 id="的作用"><a href="#的作用" class="headerlink" title="`的作用"></a>`的作用</h3><ul>
+<li>用于修饰表名和字段名,可以省略  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table &#96;t4&#96;(&#96;id&#96; int,&#96;name&#96; varchar(10));</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="冗余"><a href="#冗余" class="headerlink" title="冗余"></a>冗余</h3><ul>
+<li>由于表设计不够合理导致的大量重复数据称为数据冗余</li>
+<li>练习:<ol>
+<li>创建表保存以下数据<br> 集团总部下的教学研发部下的Java教研部下的苍老师工资200年龄18性别男<br> 集团总部下的市场部下的市场A部下的小明工资5000年龄25性别男</li>
+</ol>
+<ul>
+<li>创建员工表和部门表<br>  create table emp(id int primary key auto_increment,name varchar(10),age int,sal int,gender varchar(10),dept_id int);<br>  create table dept(id int primary key auto_increment,name varchar(10),parent_id int);</li>
+<li>插入数据:<br>  insert into dept values(null,’集团总部’,null),(null,’教学研发部’,1),(null,’Java教研部’,2),(null,’市场部’,1),(null,’市场A部’,4);<br>  insert into emp values(null,’苍老师’,18,200,’男’,3),(null,’小明’,25,5000,’男’,5);</li>
+</ul>
+</li>
+<li>练习2:<br>  创建商品表item和分类表category保存以下数据<ol>
+<li>保存家电分类下电视机分类下的小米电视 价格(price)1888 库存(num)200</li>
+<li>办公用品分类下的打印机分类下的惠普打印机 价格1500 库存100</li>
+</ol>
+<ul>
+<li>创建表<br>create table item(id int primary key auto_increment,name varchar(10),price int,num int,category_id int);<br>create table category(id int primary key auto_increment,name varchar(10),parent_id int);</li>
+<li>插入数据:<br>insert into category values(null,’家电’,null),(null,’电视机’,1),(null,’办公用品’,null),(null,’打印机’,3);<br>insert into item values(null,’小米电视’,1888,200,2),(null,’惠普打印机’,1500,100,4);</li>
+</ul>
+</li>
+</ul>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><ul>
+<li>什么是事务:事务是数据库中执行同一业务多条SQL语句的工作单元,可以保证多条SQL全部执行成功或全部执行失败.</li>
+<li>事务相关指令:<ol>
+<li>开启事务   begin;</li>
+<li>提交事务   commit;</li>
+<li>回滚      rollback;</li>
+</ol>
+</li>
+<li>验证转账流程:<br>  create table user(id int primary key auto_increment,name varchar(10),money int,status varchar(5));<br>  insert into user values(null,’超人’,50,’冻结’),(null,’蝙蝠侠’,5000,’正常’),(null,’灭霸’,20,’正常’);</li>
+<li>转账的SQL:<br>  update user set money=money-2000 where id=2 and status=’正常’;<br>  update user set money=money+2000 where id=1 and status=’正常’;</li>
+<li>有事务保护的情况下 回滚流程:<ol>
+<li>开启事务<br> begin;</li>
+<li>蝙蝠侠-2000<br> update user set money=money-2000 where id=2 and status=’正常’;</li>
+<li>此时在当前终端查询数据时 数据已经改变(因为查询到的是内存中的改动), 开启另外一个终端查询数据发现数据是没有改变的(因为新的终端查询到的是磁盘的数据)</li>
+<li>超人+2000<br> update user set money=money+2000 where id=1 and status=’正常’;</li>
+<li>此时从执行结果中发现一条成功一条失败,应该执行回滚操作<br> rollback;</li>
+</ol>
+</li>
+<li>有事务保护的情况下 提交流程:<ol>
+<li>开启事务<br> begin;</li>
+<li>蝙蝠侠-2000<br> update user set money=money-2000 where id=2 and status=’正常’;</li>
+<li>此时仍然是在内存中改动 磁盘数据没有发生改变 </li>
+<li>灭霸+2000<br> update user set money=money+2000 where id=3 and status=’正常’;</li>
+<li>此时两次改动都是在内存中改完,发现两次全部成功,所以执行提交<br> commit;</li>
+</ol>
+</li>
+<li>保存回滚点:<br>  begin;<br>  update user set money=1 where id=2;<br>  savepoint s1;<br>  update user set money=2 where id=2;<br>  savepoint s2;<br>  update user set money=3 where id=2;<br>  rollback to s2;</li>
+<li>事务的ACID特性   <strong>面试常考</strong><br>  保证事务正确执行的四大基本要素</li>
+</ul>
+<ol>
+<li>Atomicity原子性: 最小不可拆分 保证全部执行成功或全部执行失败</li>
+<li>Consistency一致性: 从一个一致状态到另一个一致状态</li>
+<li>Isolation隔离性: 多个事务之间互相隔离互不影响 </li>
+<li>Durability持久性: 当事务提交后数据保存到磁盘中持久生效  </li>
+</ol>
+<h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><h4 id="DDL-Data-Definition-Language数据定义语言"><a href="#DDL-Data-Definition-Language数据定义语言" class="headerlink" title="DDL Data Definition Language数据定义语言"></a>DDL Data Definition Language数据定义语言</h4><ul>
+<li>truncate table 表名;<br>  删除表并创建新表    让自增数值清零</li>
+<li>包括: create drop alter truncate </li>
+<li>不支持事务 </li>
+</ul>
+<h4 id="DML-Data-Manipulation-Language数据操作语言"><a href="#DML-Data-Manipulation-Language数据操作语言" class="headerlink" title="DML Data Manipulation Language数据操作语言"></a>DML Data Manipulation Language数据操作语言</h4><ul>
+<li>包括: insert update delete select</li>
+<li>支持事务</li>
+</ul>
+<h4 id="DQL-Data-Query-Language-数据查询语言"><a href="#DQL-Data-Query-Language-数据查询语言" class="headerlink" title="DQL Data Query Language 数据查询语言"></a>DQL Data Query Language 数据查询语言</h4><ul>
+<li>只包括: select</li>
+</ul>
+<h4 id="TCL-Transaction-Control-Language-事务控制语言"><a href="#TCL-Transaction-Control-Language-事务控制语言" class="headerlink" title="TCL Transaction Control Language 事务控制语言"></a>TCL Transaction Control Language 事务控制语言</h4><ul>
+<li>包括: begin,commit,rollback,savepoint xxx, rollback to xxx;</li>
+</ul>
+<h4 id="DCL-Data-Control-Language-数据控制语言"><a href="#DCL-Data-Control-Language-数据控制语言" class="headerlink" title="DCL Data Control Language 数据控制语言"></a>DCL Data Control Language 数据控制语言</h4><ul>
+<li>负责分配用户权限相关的SQL </li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
+<li>整数:  int(m) 和 bigint(m)  m代表的是显示长度,需要结合zerofill使用<br>   create table t_int(id int,age int(10) zerofill);<br>   insert into t_int values(1,18);<br>   select * from t_int;    </li>
+<li>浮点数: double(m,d)  m代表的是总长度 d代表小数长度,超高精度的浮点数decimal(m,d)  <pre><code>25.234    m=5  d=3</code></pre></li>
+<li>字符串: </li>
+</ol>
+<ul>
+<li>char(m) 固定长度 最大长度255 好处执行效率略高  </li>
+<li>varchar(m) 可变长度 好处节省空间 最大长度65535(但是超过255建议使用text)  </li>
+<li>text(m) 可变长度 最大长度65535</li>
+</ul>
+<ol start="4">
+<li>日期:</li>
+</ol>
+<ul>
+<li>date: 保存年月日</li>
+<li>time: 保存时分秒</li>
+<li>datetime: 保存年月日时分秒,默认值为null,最大9999-12-31</li>
+<li>timestamp(时间戳):保存年月日时分秒,默认值为当前系统时间,最大值2038-1-19<pre><code>create table t_date(t1 date,t2 time,t3 datetime,t4 timestamp); 
+insert into t_date values(&apos;2019-6-20&apos;,null,null,null);
+insert into t_date values(null,&apos;16:46:30&apos;,&apos;2019-06-20 16:30:30&apos;,null);</code></pre></li>
+</ul>
+<h3 id="导入-sql文件"><a href="#导入-sql文件" class="headerlink" title="导入*.sql文件"></a>导入*.sql文件</h3><ul>
+<li><p>windows系统 把文件放在C或D盘的根目录<br>  source d:/tables.sql;</p>
+</li>
+<li><p>linux系统 把文件放在桌面<br>  source /home/soft01/桌面/tables.sql</p>
+<p>  show databases;<br>  use newdb3;<br>  show tables;      四张表</p>
+<p>  select * from t_item;<br>  如果是乱码  执行     set names gbk;</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>数据库</category>
