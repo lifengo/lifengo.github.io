@@ -101,12 +101,6 @@
 <ul>
 <li>格式:create table 表名(字段1名 字段1类型,字段2名 字段2类型) engine=myisam/innodb charset=utf8/gbk;<br>  create table t1(name varchar(10),age int)engine=myisam charset=gbk; </li>
 </ul>
-<h4 id="练习"><a href="#练习" class="headerlink" title="练习:"></a>练习:</h4><ol>
-<li>创建2个数据库分别是mydb1和mydb2(字符集为gbk)<br> create database mydb1;<br> create database mydb2 character set gbk;</li>
-<li>在mydb1里面创建员工表emp 字段: 姓名 年龄 工资(sal)<br> use mydb1;<br> create table emp(name varchar(10),age int,sal int);</li>
-<li>在mydb2里面创建英雄表hero 字段: 姓名 年龄 英雄类型(type) 引擎为myisam字符集为gbk<br> use mydb2;<br> create table hero(name varchar(10),age int, type varchar(10))engine=myisam charset=gbk;</li>
-<li>删除刚创建的两个数据库<br> drop database mydb1;<br> drop database mydb2;</li>
-</ol>
 <h3 id="表相关SQL-续"><a href="#表相关SQL-续" class="headerlink" title="表相关SQL(续)"></a>表相关SQL(续)</h3><ol>
 <li>查看表字段</li>
 </ol>
@@ -157,20 +151,6 @@
 <ul>
 <li>格式: alter table 表名 modify 字段名 新类型 first/after xxx;<br>  alter table emp modify gender varchar(5) first;<br>  alter table emp modify gender varchar(5) after id;</li>
 </ul>
-<h4 id="表相关练习"><a href="#表相关练习" class="headerlink" title="表相关练习"></a>表相关练习</h4><ol>
-<li>创建数据库mydb3 指定字符utf8 并使用<br> create database mydb3 character set utf8;<br> use mydb3;</li>
-<li>创建temp表 只有id字段 指定引擎为myisam 字符集为gbk<br> create table temp(id int)engine=myisam charset=gbk;</li>
-<li>修改表名为t_emp ;<br> rename table temp to t_emp;</li>
-<li>修改引擎为innodb 修改字符集为utf8<br> alter table t_emp engine=innodb charset=utf8;</li>
-<li>在最后面添加name字段<br> alter table t_emp add name varchar(10);</li>
-<li>在name前面添加age字段<br> alter table t_emp add age int after id;</li>
-<li>在age后面添加工资sal字段<br> alter table t_emp add sal int after age;</li>
-<li>修改sal字段名称为salary<br> alter table t_emp change sal salary int;</li>
-<li>修改age字段到最后面<br> alter table t_emp modify age int after name;</li>
-<li>删除salary字段<br>alter table t_emp drop salary;</li>
-<li>删除表<br>drop table t_emp;</li>
-<li>删除数据库<br>drop database mydb3;</li>
-</ol>
 <h3 id="数据相关SQL"><a href="#数据相关SQL" class="headerlink" title="数据相关SQL"></a>数据相关SQL</h3><pre><code>create database mydb1 character set utf8;
 use mydb1;
 create table emp(id int,name varchar(10),age int)engine=innodb charset=utf8;</code></pre><ol>
@@ -200,35 +180,6 @@ create table emp(id int,name varchar(10),age int)engine=innodb charset=utf8;</co
 <ul>
 <li>格式: delete from 表名 where 条件;<br>  delete from emp where age&lt;20;<br>  delete from emp where age is null;<br>  delete from emp;//删除全部数据</li>
 </ul>
-<h4 id="数据相关练习"><a href="#数据相关练习" class="headerlink" title="数据相关练习"></a>数据相关练习</h4><ol>
-<li>创建hero表 id 名字name 类型type  价格money</li>
-<li>保存以下数据<br> 1,’诸葛亮’,’法师’,18888 2,’周瑜’,’法师’,13888<br> 3,’孙悟空’,’打野’,18888 4,’小乔’,’法师’,13888<br> 5,’黄忠’,’射手’,8888 6,’刘备’,’战士’,6888</li>
-<li>修改所有18888为28888</li>
-<li>修改所有法师为战士</li>
-<li>删除价格为6888的英雄</li>
-<li>修改小乔为猪八戒</li>
-<li>删除价格低于15000的英雄</li>
-<li>添加性别gender字段在name的后面</li>
-<li>修改所有英雄的性别为男</li>
-<li>删除所有数据</li>
-<li>删除表</li>
-</ol>
-<h4 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h4><ol>
-<li>创建数据库mydb2 字符集utf8  并使用<br> create database mydb2 character set utf8;<br> use mydb2;</li>
-<li>创建员工表emp 有id和name字段<br> create table emp (id int,name varchar(10));</li>
-<li>修改表名为t_emp<br> rename table emp to t_emp;        </li>
-<li>添加部门名称字段dept<br> alter table t_emp add dept varchar(10);</li>
-<li>在name后面添加age字段<br> alter table t_emp add age int after name;</li>
-<li>插入刘关张三个人id分别为1,2,3部门都是三国部，再插入唐僧师徒4个人，id分别为4567 部门为取经部<br>insert into t_emp values<br>(1,’刘备’,38,’三国部’),(2,’关羽’,37,’三国部’),(3,’张飞’,36,’三国部’),(4,’唐僧’,30,’取经部’),(5,’悟空’,500,’取经部’),(6,’八戒’,300,’取经部’),(7,’沙僧’,200,’取经部’);</li>
-<li>给表再添加工资字段，添加到部门字段的前面<br> alter table t_emp add sal int after age;</li>
-<li>修改取经部门的工资为100<br> update t_emp set sal=100 where dept=’取经部’;</li>
-<li>修改唐僧的名字为唐长老<br> update t_emp set name=’唐长老’ where name=’唐僧’;</li>
-<li>修改三国部为蜀国部<br>update t_emp set dept=’蜀国部’ where dept=’三国部’;</li>
-<li>删除猪八戒<br>delete from t_emp where name=’八戒’;</li>
-<li>删除蜀国部的人<br>delete from t_emp where dept=’蜀国部’; </li>
-<li>修改所有员工的工资为800<br>update t_emp set sal=800;</li>
-<li>删除所有人                 15. 最后删除表<br>delete from t_emp;<br>drop table t_emp;</li>
-</ol>
 <h3 id="主键约束-primary-key"><a href="#主键约束-primary-key" class="headerlink" title="主键约束 primary key"></a>主键约束 primary key</h3><ul>
 <li>什么是主键: 表示数据唯一性的字段称为主键</li>
 <li>什么是约束: 是创建表时给表字段添加的限制条件</li>
@@ -253,17 +204,8 @@ create table emp(id int,name varchar(10),age int)engine=innodb charset=utf8;</co
 <li>创建表保存以下数据<br> 集团总部下的教学研发部下的Java教研部下的苍老师工资200年龄18性别男<br> 集团总部下的市场部下的市场A部下的小明工资5000年龄25性别男</li>
 </ol>
 <ul>
-<li>创建员工表和部门表<br>  create table emp(id int primary key auto_increment,name varchar(10),age int,sal int,gender varchar(10),dept_id int);<br>  create table dept(id int primary key auto_increment,name varchar(10),parent_id int);</li>
-<li>插入数据:<br>  insert into dept values(null,’集团总部’,null),(null,’教学研发部’,1),(null,’Java教研部’,2),(null,’市场部’,1),(null,’市场A部’,4);<br>  insert into emp values(null,’苍老师’,18,200,’男’,3),(null,’小明’,25,5000,’男’,5);</li>
-</ul>
-</li>
-<li>练习2:<br>  创建商品表item和分类表category保存以下数据<ol>
-<li>保存家电分类下电视机分类下的小米电视 价格(price)1888 库存(num)200</li>
-<li>办公用品分类下的打印机分类下的惠普打印机 价格1500 库存100</li>
-</ol>
-<ul>
-<li>创建表<br>create table item(id int primary key auto_increment,name varchar(10),price int,num int,category_id int);<br>create table category(id int primary key auto_increment,name varchar(10),parent_id int);</li>
-<li>插入数据:<br>insert into category values(null,’家电’,null),(null,’电视机’,1),(null,’办公用品’,null),(null,’打印机’,3);<br>insert into item values(null,’小米电视’,1888,200,2),(null,’惠普打印机’,1500,100,4);</li>
+<li>创建员工表和部门表</li>
+<li>插入数据:<br><a href="https://imgchr.com/i/GnUco8" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/30/GnUco8.png" alt="GnUco8.png"></a></li>
 </ul>
 </li>
 </ul>
@@ -343,12 +285,211 @@ insert into t_date values(null,&apos;16:46:30&apos;,&apos;2019-06-20 16:30:30&ap
 </ul>
 <h3 id="导入-sql文件"><a href="#导入-sql文件" class="headerlink" title="导入*.sql文件"></a>导入*.sql文件</h3><ul>
 <li><p>windows系统 把文件放在C或D盘的根目录<br>  source d:/tables.sql;</p>
+<p>  tables.sql文件地址链接: <a href="https://pan.baidu.com/s/1btFOzc6IjpgEZnaug1UcGA" target="_blank" rel="noopener">https://pan.baidu.com/s/1btFOzc6IjpgEZnaug1UcGA</a> 提取码: v1qm</p>
 </li>
 <li><p>linux系统 把文件放在桌面<br>  source /home/soft01/桌面/tables.sql</p>
 <p>  show databases;<br>  use newdb3;<br>  show tables;      四张表</p>
 <p>  select * from t_item;<br>  如果是乱码  执行     set names gbk;</p>
 </li>
 </ul>
+<h3 id="is-null-和-is-not-null"><a href="#is-null-和-is-not-null" class="headerlink" title="is null 和 is not null"></a>is null 和 is not null</h3><ol>
+<li>从员工表中查询 没有上级领导的员工姓名,工资<br> select ename,sal from emp where mgr is null;</li>
+<li>查询有领导的员工姓名和上级领导的编号<br> select ename,mgr from emp where mgr is not null;</li>
+</ol>
+<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p>select ename as ‘姓名’ from emp;<br>select ename ‘姓名’ from emp;<br>select ename 姓名 from emp;</p>
+<h3 id="比较运算符-gt-lt-gt-lt-和-lt-gt"><a href="#比较运算符-gt-lt-gt-lt-和-lt-gt" class="headerlink" title="比较运算符 &gt; &lt; &gt;= &lt;= = !=和&lt;&gt;"></a>比较运算符 &gt; &lt; &gt;= &lt;= = !=和&lt;&gt;</h3><ol>
+<li>查询工资在2000以下的员工姓名和工资<br> select ename,sal from emp where sal&lt;2000;</li>
+<li>查询职位(job)是manager的员工姓名、工资、职位<br> select ename,sal,job from emp where job=’manager’;</li>
+<li>查询工资小于等于1600的员工姓名、职位、工资<br> select ename,job,sal from emp wehere sal&lt;=1600;</li>
+<li>查询不是10号部门的员工姓名和部门编号（两种写法）<br> select ename,deptno from emp where deptno!=10;<br> select ename,deptno from emp where deptno&lt;&gt;10;</li>
+<li>查询商品表（t_item）中单价为23的商品信息<br> select * from t_item where price=23 \G;</li>
+<li>查询单价不是8443的商品标题(title)<br> select title from t_item where price!=8443;</li>
+</ol>
+<h3 id="去重-distinct"><a href="#去重-distinct" class="headerlink" title="去重 distinct"></a>去重 distinct</h3><ol>
+<li>查询员工表中有哪些职位<br> select distinct job from emp;</li>
+<li>查询员工表中出现了那几个部门编号<br> select distinct deptno from emp;</li>
+</ol>
+<h3 id="and-和-or"><a href="#and-和-or" class="headerlink" title="and 和 or"></a>and 和 or</h3><ul>
+<li>如果查询数据时需要同时满足多个条件则使用and   &amp;&amp;</li>
+<li>如果查询数据时只需要满足条件中的某一个则使用or ||</li>
+</ul>
+<ol>
+<li>查询10号部门中工资低于2000的员工信息<br> select * from emp where deptno=10 and sal&lt;2000;</li>
+<li>查询部门是30号或者工资高于3000的员工信息<br> select * from emp where deptno=30 or sal&gt;3000;</li>
+</ol>
+<h3 id="模糊查询-like"><a href="#模糊查询-like" class="headerlink" title="模糊查询 like"></a>模糊查询 like</h3><ul>
+<li>% 代表0或多个未知字符</li>
+<li>_ 代表单个未知字符<br>  举例:   第一个字符是x       x%<pre><code>最后一个字符是y     %y
+包含               %x%
+倒数第二个字符是x       %x_
+x开头y结尾         x%y
+第二个字符是x 倒数第三个字符是y     _x%y__</code></pre></li>
+</ul>
+<ol>
+<li>查询名字以j开头的所有员工姓名<br> select ename from emp where ename like ‘j%’;</li>
+<li>查询名字第二个字符是l的员工姓名和工资<br> select ename,sal from emp where ename like ‘_l%’;</li>
+<li>查询t_item表中 标题中包含记事本的商品标题<br> select title from t_item where title like ‘%记事本%’;</li>
+<li>查询职位中包含an并且工资高于1500的员工姓名、工资、职位<br> select ename,sal,job from emp where job like ‘%an%’ and sal&gt;1500;</li>
+<li>查询有赠品的dell商品详情(卖点sell_point中包含“赠”，并且title包含dell)<br> select * from t_item where sell_point like ‘%赠%’ and title like ‘%dell%’;</li>
+<li>查询单价低于100块钱的笔记本标题和价格(提示:title包含笔记本)<br> select title,price from t_item where price&lt;100 and title like ‘%笔记本%’;</li>
+<li>查询有图片的得力商品信息（image字段不为null,title包含得力）<br> select * from t_item where image is not null and title like ‘%得力%’;</li>
+<li>查询不包含a的员工姓名<br> select ename from emp where ename not like ‘%a%’;</li>
+</ol>
+<h3 id="between-x-and-y"><a href="#between-x-and-y" class="headerlink" title="between x and y"></a>between x and y</h3><ol>
+<li>查询工资在2000到3000之间的员工姓名和工资(要求包含2000和3000)<br> select ename,sal from emp where sal&gt;=2000 and sal&lt;=3000;<br> select ename,sal from emp where sal between 2000 and 3000;</li>
+<li>查询单价在50到100之间的商品标题和单价<br> select title,price from t_item where price between 50 and 100;</li>
+<li>查询工资在1000到2000之外的员工姓名和工资<br> select ename,sal from emp where sal not between 1000 and 2000;</li>
+</ol>
+<h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><ul>
+<li>当查询字段值为多个值的时候使用</li>
+</ul>
+<ol>
+<li>查询员工工资为800,1300,1500的员工信息<br> select * from emp where sal=800 or sal=1300 or sal=1500;<br> select * from emp where sal in(800,1300,1500);</li>
+<li>查询商品价格为56,58,89的商品标题和单价<br> select title,price from t_item where price in(56,58,89);</li>
+<li>查询工资不等于3000,5000,1500的员工姓名和工资<br> select ename,sal from emp where sal not in(3000,5000,1500);</li>
+</ol>
+<h4 id="综合练习题"><a href="#综合练习题" class="headerlink" title="综合练习题"></a>综合练习题</h4><ol>
+<li>查询分类id为238,917的商品信息 (涉及字段自己查)<br> select * from t_item where category_id in(238,917);</li>
+<li>查询价格在50-200之间的得力商品标题和价格<br> select title,price from t_item where price between 50 and 200 and title like ‘%得力%’;</li>
+<li>查询有上级领导并且工资小于2000的员工姓名、工资和领导编号<br> select ename,sal,mgr from emp where mgr is not null and sal&lt;2000;</li>
+<li>查询有奖金并且有上级领导的员工姓名、奖金、领导编号<br> select ename,comm,mgr from emp where comm&gt;0 and mgr is not null;</li>
+<li>查询名字中包含a,并且工资在3000以内的员工从事的职业有哪几种<br> select distinct job from emp where ename like ‘%a%’ and sal&lt;3000;</li>
+</ol>
+<h3 id="排序-order-by"><a href="#排序-order-by" class="headerlink" title="排序 order by"></a>排序 order by</h3><ul>
+<li>格式: order by 字段名 asc/desc       asc:升序(默认)   desc:降序</li>
+<li>order by 写在条件的后面</li>
+</ul>
+<ol>
+<li>查询工资小于3000的员工姓名和工资 要求按照工资降序排序<br> select ename,sal from emp where sal&lt;3000 order by sal desc;</li>
+<li>查询10号部门每个员工的姓名和工资 按照工资升序排序<br> select ename,sal from emp where deptno=10 order by sal;</li>
+<li>查询有奖金的员工姓名、工资、奖金  按照奖金降序排序<br> select ename,sal,comm from emp where comm&gt;0 order by comm desc; </li>
+<li>查询单价低于100的商品标题和单价并按照单价升序排序<br> select title,price from t_item where price&lt;100 order by price;</li>
+</ol>
+<ul>
+<li>多字段排序: order by 字段1 asc/desc,字段2 asc/desc</li>
+</ul>
+<ol start="5">
+<li>查询每个员工的姓名、工资和部门编号 按照部门编号降序排序,如果部门一致则按照工资升序排序<br> select ename,sal,deptno from emp order by deptno desc,sal;</li>
+</ol>
+<h3 id="分页查询-limit-跳过的条数-请求的条数"><a href="#分页查询-limit-跳过的条数-请求的条数" class="headerlink" title="分页查询 limit 跳过的条数,请求的条数"></a>分页查询 limit 跳过的条数,请求的条数</h3><ul>
+<li>请求第一页的10条数据  limit 0,10</li>
+<li>请求第三页的10条数据  limit 20,10</li>
+<li>请求第八页的5条数据   limit  35,5  </li>
+<li>公式   limit (页数-1)*数量,数量</li>
+<li>请求第四页的7条数据  limit 21,7</li>
+</ul>
+<ol>
+<li>查询每个员工的姓名和工资,按照工资降序排序 请求第三页的3条数据<br> select ename,sal from emp order by sal desc limit 6,3;</li>
+<li>请求员工表中工资最高的前三名员工的信息<br> select * from emp order by sal desc limit 0,3;</li>
+<li>查询商品标题和单价 按照单价升序排序 第三页的5条数据<br> select title,price from t_item order by price limit 10,5;</li>
+<li>查询30号部门中工资最高的员工信息<br> select * from emp where deptno=30 order by sal desc limit 0,1;</li>
+</ol>
+<h3 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算 + - * / %"></a>数值计算 + - * / %</h3><ol>
+<li>查询员工姓名,工资和年终奖(年终奖=工资<em>5)<br> select ename,sal,sal</em>5 年终奖 from emp;</li>
+<li>查询商品标题，商品单价，库存和总价值（单价<em>库存）<br> select title,price,num,price</em>num 总价值 from t_item;</li>
+<li>查询每个员工的姓名和 加薪5块钱之后的工资<br> select ename,sal+5 from emp;</li>
+</ol>
+<h3 id="日期相关SQL"><a href="#日期相关SQL" class="headerlink" title="日期相关SQL"></a>日期相关SQL</h3><ol>
+<li>获取系统时间 now()<br> create table t_date(name varchar(10),birthday datetime);<br> insert into t_date values(‘刘德华’,now());</li>
+<li>获取当前的年月日 和当前的时分秒  cur=current 当前<br> select “hellworld”;<br> select curdate(),curtime();</li>
+<li>从年月日时分秒中 提取年月日 和 提取时分秒<br> select date(now());<br> select time(now());<br> 查询商品的上传日期 只查询年月日<br> select created_time from t_item; //商品上传年月日时分秒<br> select date(created_time) from t_item;//商品上传年月日</li>
+<li>从年月日时分秒中提取时间分量<br> select extract(year from now());<br> select extract(month from now());<br> select extract(day from now());<br> select extract(hour from now());<br> select extract(minute from now());<br> select extract(second from now());<br> 查询员工入职的年份<br> select extract(year from hiredate) from emp;</li>
+<li>日期格式化 date_format(时间,格式);</li>
+</ol>
+<ul>
+<li>格式规则:<br>  %Y 四位年 2019  %y 两位年 19<br>  %m 2位月  06   %c 1位月  6<br>  %d  日<br>  %H 24小时   %h  12小时<br>  %i 分钟<br>  %s 秒</li>
+<li>测试: 把now()  2019-06-21 15:29:30  转成 2019年06月21号 15点29分30秒<br>  select date_format(now(),’%Y年%m月%d号 %H点%i分%s秒’);</li>
+</ul>
+<ol start="6">
+<li>反向格式化 str_to_date(时间,格式)<br> 21.06.2019 15点36分20秒 转回  2019-06-21 15:36:20<br> select str_to_date(‘21.06.2019 15点36分20秒’,’%d.%m.%Y %H点%i分%s秒’);</li>
+</ol>
+<h3 id="ifnull-x-y"><a href="#ifnull-x-y" class="headerlink" title="ifnull(x,y)"></a>ifnull(x,y)</h3><ul>
+<li>age=ifnull(x,y)   如果x值为null则age=y 否则age=x</li>
+<li>练习:修改奖金为null的值为0 不为null则不变<br>  update emp set comm=ifnull(comm,0);</li>
+</ul>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><ul>
+<li>对查询的多条数据进行统计查询: 平均值,最大值,最小值,求和,计数</li>
+</ul>
+<ol>
+<li>平均值 avg(字段名)<br> -查询员工的平均工资<br> select avg(sal) from emp;</li>
+<li>最大值 max(字段名)<br> -查询20号部门的最高工资<br> select max(sal) from emp where deptno=20;</li>
+<li>最小值 min(字段名)<br> -查询名字里面包含a的员工的最低工资<br> select min(sal) from emp where ename like ‘%a%’;</li>
+<li>求和 sum(字段名)<br> -查询10号部门工资总和<br> select sum(sal) from emp where deptno=10;</li>
+<li>计数 count(字段名)<br> -查询工资高于2000的员工数量<br> select count(*) from emp where sal&gt;2000;</li>
+</ol>
+<ul>
+<li>查询20号部门的平均工资,最高工资,最低工资,工资总和,员工数量<br>  select avg(sal),max(sal),min(sal),sum(sal),count(*) from emp where deptno=20;</li>
+</ul>
+<h3 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h3><ol>
+<li>字符串拼接concat(s1,s2);   s1s2<br> select concat(‘aa’,’bb’);<ul>
+<li>查询每个员工的姓名和工资 要求工资以元为单位<br>select ename,concat(sal,’元’) from emp;</li>
+</ul>
+</li>
+<li>获取字符串的长度 char_length(str);<br> select char_length(‘abc’);<ul>
+<li>查询每个员工的姓名和名字长度<br>select ename,char_length(ename) from emp;</li>
+</ul>
+</li>
+<li>获取字符串出现的位置 instr(str,substr);<br> select instr(‘abcdefg’,’d’);</li>
+<li>转大写和转小写<br> select upper(‘abc’),lower(‘NBA’);</li>
+<li>截取字符串<ul>
+<li>左边截取   select left(‘abcdefg’,2);</li>
+<li>右边截取   select right(‘abcdefg’,2);</li>
+<li>自由截取    select substring(‘abcdefg’,2,3); 3代表长度</li>
+</ul>
+</li>
+<li>去两端空白 trim()<br> select trim(‘   a b   ‘);  </li>
+<li>重复repeat()<br> select repeat(‘ab’,2);</li>
+<li>替换replace()<br> select replace(‘abcde abc’,’b’,’m’);</li>
+<li>反转reverse()<br> select reverse(‘abc’);</li>
+</ol>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ol>
+<li>案例：查询没有上级领导的员工的编号，姓名，工资</li>
+<li>案例：查询emp表中没有奖金的员工的姓名，职位，工资，以及奖金</li>
+<li>案例：查询emp表中含有奖金的员工的编号，姓名，职位，以及奖金</li>
+<li>案例：查询含有上级领导的员工的姓名，工资以及上级领导的编号</li>
+<li>案例：查询emp表中名字以‘S’开头的所有员工的姓名</li>
+<li>案例：查询emp表中名字的最后一个字符是’S’的员工的姓名</li>
+<li>案例：查询倒数的第2个字符是‘E’的员工的姓名</li>
+<li>案例：查询emp表中员工的倒数第3个字符是‘N’的员工姓名</li>
+<li>案例：查询emp表中员工的名字中包含‘A’的员工的姓名</li>
+<li>案例：查询emp表中名字不是以’K’开头的员工的所有信息</li>
+<li>案例：查询emp表中名字中不包含‘A’的所有员工的信息</li>
+<li>案例：做文员的员工人数（job 中 含有 CLERK 的）</li>
+<li>案例：销售人员 job: SALESMAN 的最高薪水</li>
+<li>案例：最早和最晚入职时间</li>
+<li>案例：查询类别 163的商品总库存量</li>
+<li>案例：查询 类别 163 的商品</li>
+<li>案例：查询商品价格不大于100的商品名称列表</li>
+<li>案例：查询品牌是联想,且价格在40000以上的商品名称和价格</li>
+<li>案例：查询品牌是三木,或价格在50以下的商品名称和价格</li>
+<li>案例：查询品牌是三木、广博、齐心的商品名称和价格</li>
+<li>案例：查询品牌不是联想、戴尔的商品名称和价格</li>
+<li>案例：查找品牌是联想且价格大于10000的名称</li>
+<li>案例：查询联想或戴尔的电脑名称列表</li>
+<li>案例：查询emp表中员工的编号，姓名，职位，工资，并且工资在1000~2000之间。</li>
+<li>案例：查询emp表中员工在10号部门，并且含有上级领导的员工的姓名，职位，上级领导编号以及所属部门的编号</li>
+<li>案例：查询emp表中名字中包含’E’，并且职位不是MANAGER的员工的编号，姓名，职位，以及工资。</li>
+<li>案例：查询emp表中10号部门或者20号部门中员工的编号，姓名，所属部门的编号</li>
+<li>案例：查询emp表中没有奖金或者名字的倒数第2个字母不是T的员工的编号，姓名，职位以及奖金</li>
+<li>案例：查询工资高于3000或者部门编号是30的员工的姓名，职位，工资，入职时间以及所属部门的编号</li>
+<li>案例：查询不是30号部门的员工的所有信息</li>
+<li>案例：查询奖金不为空的员工的所有信息</li>
+<li>案例：查询emp表中所有员工的编号，姓名，职位，根据员工的编号进行降序排列</li>
+<li>案例：查询emp表中部门编号是10号或者30号中，所有员工姓名，职务，工资，根据工资进行升序排列</li>
+<li>案例：查询emp表中所有的数据，然后根据部门的编号进行升序排列，如果部门编号一致，根据员工的编号进行降序排列</li>
+<li>案例：查询emp表中工资高于1000或者没有上级领导的员工的编号，姓名，工资，所属部门的编号，以及上级领导的编号，根据部门编号进行降序排列，如果部门编号一致根据工资进行升序排列。</li>
+<li>案例：查询emp表中名字中不包含S的员工的编号，姓名，工资，奖金，根据工资进行升序排列，如果工资一致，根据编号进行降序排列</li>
+<li>案例：统计emp表中员工的总数量</li>
+<li>案例：统计emp表中获得奖金的员工的数量</li>
+<li>案例：求出emp表中所有的工资累加之和</li>
+<li>案例：求出emp表中所有的奖金累加之和</li>
+<li>案例：求出emp表中员工的平均工资</li>
+<li>案例：求出emp表中员工的平均奖金</li>
+<li>案例：求出emp表中员工的最高工资</li>
+<li>案例：求出emp表中员工编号的最大值</li>
+<li>案例：查询emp表中员工的最低工资。</li>
+<li>案例：查询emp表中员工的人数，工资的总和，平均工资，奖金的最大值，奖金的最小值,并且对返回的列起别名。</li>
+</ol>
 ]]></content>
       <categories>
         <category>数据库</category>
