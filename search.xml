@@ -15,7 +15,7 @@
 <li><p>HTTP对请求与响应分别定义了格式。并且，无论是请求还是<br>响应中发送的字符(不含正文部分内容)都只能符合ISO8859-1<br>编码字符(如:数字，字母，符号)。像中文等其他字符都需要<br>经过处理后才可以发送。</p>
 </li>
 <li><p>HTTP请求格式<br>一个HTTP请求分为三部分组成:请求行，消息头，消息正文</p>
-</li>
+<a id="more"></a></li>
 </ul>
 <ol>
 <li>请求行<br>请求行分为三部分:<br>请求方法 资源路径 协议(CRLF)<br>method url protocol(CRLF)<br>例如:<br>GET /index.html HTTP/1.1(CRLF)<br>请求行以CRLF结束<br>CR:回车符,asc编码中对应数字13<br>LF:换行符,asc编码中对应数字10</li>
